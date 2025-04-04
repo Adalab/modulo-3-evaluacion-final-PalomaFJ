@@ -1,4 +1,9 @@
 body {
+    background-image: url('../images/universo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-color: black;
     color: white;
     font-family: sans-serif;
@@ -12,7 +17,7 @@ body {
   }
   
   .header-logo {
-    max-width: 250px;
+    max-width: 400px;
     height: auto;
   }
   
@@ -30,7 +35,7 @@ body {
     display: block;
     margin-bottom: 10px;
     font-size: 24px;
-    color: #00bfff;
+    color: #3cff00; 
     font-family: 'Orbitron', sans-serif;
   }
   
