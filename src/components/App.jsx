@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import CharacterList from "./CharacterList";
 import FilterName from "./FilterName";
 import "../scss/App.scss";
+import { Routes, Route } from "react-router-dom";
+import CharacterDetail from "./CharacterDetail";
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -26,9 +29,25 @@ function App() {
     <main>
       <h1>Rick and Morty</h1>
 
-      <FilterName searchName={searchName} onChangeSearch={handleSearchName} />
-      <CharacterList characters={filteredCharacters} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <FilterName searchName={searchName} onChangeSearch={handleSearchName} />
+              {filteredCharacters.length === 0 ? (
+                <p>No hay ningún personaje que coincida con la palabra "{searchName}"</p>
+              ) : (
+                <CharacterList characters={filteredCharacters} />
+              )}
+            </>
+          }
+        />
+        <Route path="/character/:id" element={<CharacterDetail characters={characters} />} />
+      </Routes>
     </main>
+
+
   );
 }
 
