@@ -1,23 +1,20 @@
-function FilterName({ searchName, onChangeSearch }) {
+function FilterName({ onChangeSearch, searchName }) {
     const handleInput = (ev) => {
-      onChangeSearch(ev.target.value);
+        onChangeSearch(ev.target.value);
     };
-  
-    const handleSubmit = (ev) => {
-      ev.preventDefault();
-    };
-  
+
     return (
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="search">Buscar tu personaje por nombre:</label>
-        <input
-          type="text"
-          id="search"
-          value={searchName}
-          onChange={handleInput}
-        />
-      </form>
+        <form className="filter-form" onSubmit={(e) => e.preventDefault()}>
+            <label className="filter-label" htmlFor="name">Buscar por nombre</label>
+            <input
+                className="filter-input"
+                id="name"
+                type="text"
+                value={searchName}
+                onChange={handleInput}
+            />
+        </form>
     );
-  }
-  
-  export default FilterName;
+}
+
+export default FilterName;

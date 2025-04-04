@@ -3,7 +3,7 @@ import CharacterCard from "./CharacterCard";
 function CharacterList({ characters }) {
   return (
     <section>
-      <ul>
+      <ul className="character-list">
         {characters.map((character) => (
           <li key={character.id}>
             <CharacterCard character={character} />

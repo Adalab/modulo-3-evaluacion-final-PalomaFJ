@@ -4,6 +4,8 @@ import FilterName from "./FilterName";
 import "../scss/App.scss";
 import { Routes, Route } from "react-router-dom";
 import CharacterDetail from "./CharacterDetail";
+import Header from './Header';
+
 
 
 function App() {
@@ -26,26 +28,29 @@ function App() {
     character.name.toLowerCase().includes(searchName.toLowerCase())
   );
   return (
-    <main>
-      <h1>Rick and Morty</h1>
+    <div>
+      <Header />
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <FilterName searchName={searchName} onChangeSearch={handleSearchName} />
-              {filteredCharacters.length === 0 ? (
-                <p>No hay ningún personaje que coincida con la palabra "{searchName}"</p>
-              ) : (
-                <CharacterList characters={filteredCharacters} />
-              )}
-            </>
-          }
-        />
-        <Route path="/character/:id" element={<CharacterDetail characters={characters} />} />
-      </Routes>
-    </main>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <FilterName searchName={searchName} onChangeSearch={handleSearchName} />
+                {filteredCharacters.length === 0 ? (
+                  <p>No hay ningún personaje que coincida con la palabra "{searchName}"</p>
+                ) : (
+                  <CharacterList characters={filteredCharacters} />
+                )}
+              </>
+            }
+          />
+          <Route path="/character/:id" element={<CharacterDetail characters={characters} />} />
+        </Routes>
+      </main>
+    </div>
+
 
 
   );

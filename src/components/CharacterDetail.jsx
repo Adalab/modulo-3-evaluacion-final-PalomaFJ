@@ -17,12 +17,12 @@ function CharacterDetail({ characters }) {
 
   // Si si se encuenra el personaje lo muestro
   return (
-    <section>
-      <h2>{character.name}</h2>
-      <img src={character.image} alt={character.name} />
-      <p>Especie: {character.species}</p>
-      <p>Estado: {character.status}</p>
-      <p>Origen: {character.origin.name}</p>
+    <section className="character-detail">
+      <h2 className="detail-name">{character.name}</h2>
+      <img className="detail-img" src={character.image} alt={character.name} />
+      <p className="detail-info">Especie: {character.species}</p>
+      <p className="detail-info">Estado: {character.status}</p>
+      <p className="detail-info">Origen: {character.origin.name}</p>
     </section>
   );
 }
